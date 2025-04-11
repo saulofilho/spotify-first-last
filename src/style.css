@@ -1,4 +1,4 @@
-/* :root {
+:root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -42,27 +42,6 @@ h1 {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -82,6 +61,56 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+#artistForm {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#artistForm input[type="text"] {
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 250px;
+}
+
+#artistForm input[type="text"]:focus {
+  border-color: #7b61ff;
+}
+
+#artistForm button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #7b61ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#artistForm button:hover {
+  background-color: #5d49d1;
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -93,14 +122,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-} */
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
 }
+/* 
 h1 {
   text-align: center;
   color: #333;
@@ -120,19 +143,6 @@ input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 16px;
-}
-button:hover {
-  background-color: #0056b3;
-}
 #results {
   max-width: 600px;
   margin: 0 auto;
@@ -145,4 +155,4 @@ button:hover {
   margin-bottom: 15px;
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
-}
+} */
