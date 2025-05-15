@@ -1,4 +1,3 @@
-// main.js
 const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
 
@@ -32,7 +31,6 @@ async function getArtistAlbums(artistId, token) {
     }
   });
   const data = await result.json();
-  // Remover álbuns duplicados (várias versões do mesmo álbum)
   const uniqueAlbums = {};
   data.items.forEach(album => {
     if (!uniqueAlbums[album.name]) {
@@ -58,9 +56,14 @@ function getRandomTrack(tracks) {
   return tracks[randomIndex];
 }
 
-function displayResult(content) {
+function displayResult(content, artistName = '') {
   const resultsDiv = document.getElementById('results');
-  resultsDiv.innerHTML = content;
+  resultsDiv.innerHTML = `
+    ${artistName ? `<h2>Artist: ${artistName}</h2>` : ''}
+    <div class="results-grid">
+      ${content}
+    </div>
+  `;
 }
 
 async function searchAndDisplay(event) {
@@ -83,26 +86,21 @@ async function searchAndDisplay(event) {
       return;
     }
 
-    // Ordena os álbuns pela data de lançamento (crescente)
     albums.sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
     const firstAlbum = albums[0];
     const lastAlbum = albums[albums.length - 1];
 
-    // Buscar faixas do primeiro álbum
     const firstAlbumTracks = await getAlbumTracks(firstAlbum.id, token);
     const randomTrackFirstAlbum = getRandomTrack(firstAlbumTracks);
 
-    // Buscar faixas do último álbum
     const lastAlbumTracks = await getAlbumTracks(lastAlbum.id, token);
     const randomTrackLastAlbum = getRandomTrack(lastAlbumTracks);
 
     let resultHTML = `<div class="result-item">
-      <h2>Artist: ${artist.name}</h2>
       <h3>First Album: ${firstAlbum.name} (${firstAlbum.release_date})</h3>`;
     
     if (randomTrackFirstAlbum) {
       resultHTML += `<p>Random track: ${randomTrackFirstAlbum.name}</p>`;
-      // Utiliza o embed player do Spotify, passando o ID da faixa
       resultHTML += `<iframe src="https://open.spotify.com/embed/track/${randomTrackFirstAlbum.id}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
     } else {
       resultHTML += `<p>No tracks found for this album.</p>`;
@@ -119,7 +117,7 @@ async function searchAndDisplay(event) {
     }
     resultHTML += `</div>`;
 
-    displayResult(resultHTML);
+    displayResult(resultHTML, artist.name);
 
   } catch (error) {
     console.error('Error:', error);

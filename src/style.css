@@ -13,6 +13,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*:focus {
+  outline: 0;
+}
+::-webkit-scrollbar {
+  width: 0.4rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #5d49d1;
+}
+::selection {
+  background-color: #5d49d1;
+  color: rgb(115, 204, 255);
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,14 +52,38 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.home, .artist {
+  height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 10em;
+  line-height: 0.8;
+  font-family: "Exile", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: lightgreen;
+  text-shadow:
+    1px 1px 0 #5d49d1,
+    2px 2px 0 #5d49d1,
+    3px 3px 0 #5d49d1,
+    4px 4px 0 #5d49d1,
+    5px 5px 0 #5d49d1,
+    6px 6px 0 #5d49d1,
+    7px 7px 0 #5d49d1;
+}
+
+.text {
+  font-size: 3em;
+  font-weight: bolder;
+  font-style: normal;
+  color: white;
+  height: 100vh;
 }
 
 #app {
@@ -40,6 +91,31 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+#results {
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#results h2 {
+  text-align: center;
+}
+
+.results-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.result-item {
+  flex: 1 1 45%;
+  min-width: 280px;
+  padding: 15px;
+  border-radius: 8px;
 }
 
 button {
@@ -61,14 +137,14 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-#container {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  height: 100%;
   width: 100%;
+  padding: 20px;
 }
 
 #artistForm {
@@ -123,36 +199,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-/* 
-h1 {
-  text-align: center;
-  color: #333;
-}
-form {
-  max-width: 400px;
-  margin: 0 auto 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-#results {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.result-item {
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-} */
