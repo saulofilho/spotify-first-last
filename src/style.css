@@ -60,9 +60,12 @@ body {
   width: 100%;
 }
 
-.home,
-.artist {
+.home {
   height: 100vh;
+}
+
+.artist {
+  min-height: 100vh;
 }
 
 h1 {
@@ -80,6 +83,12 @@ h1 {
     5px 5px 0 #5d49d1,
     6px 6px 0 #5d49d1,
     7px 7px 0 #5d49d1;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: lightgreen;
+  padding-bottom: 20px;
 }
 
 .text {
@@ -104,7 +113,7 @@ h1 {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-#results h2 {
+h2 {
   text-align: center;
 }
 
@@ -198,15 +207,17 @@ button:focus-visible {
 }
 
 @media (max-width: 768px) {
-  .home,
-  .artist {
-    height: auto;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  h1 {
+    font-size: 4em;
   }
 
-  h1 {
-    font-size: clamp(3rem, 10vw, 6rem);
+  h2 {
+    font-size: 1em;
+  }
+
+  h3 {
+    font-size: 1em;
+    color: lightgreen;
   }
 
   .text {
@@ -226,21 +237,6 @@ button:focus-visible {
 
   .container {
     padding: 1.5rem 0.5rem;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
   }
 }
 
