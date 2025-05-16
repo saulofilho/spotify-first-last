@@ -110,7 +110,7 @@ async function searchAndDisplay(event) {
     resultHTML += `<div class="result-item">
       <h3>Last Album: ${lastAlbum.name} (${lastAlbum.release_date})</h3>`;
     if (randomTrackLastAlbum) {
-      resultHTML += `<p>FRandom track: ${randomTrackLastAlbum.name}</p>`;
+      resultHTML += `<p>Random track: ${randomTrackLastAlbum.name}</p>`;
       resultHTML += `<iframe src="https://open.spotify.com/embed/track/${randomTrackLastAlbum.id}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
     } else {
       resultHTML += `<p>No tracks found for this album.</p>`;
